@@ -12,30 +12,29 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Load environment variables from .env
+load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(b&d@a2^a9b40*5bmd^aq=#yvb^#e2^@8l032rd0te(2#hixdd'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-default-change-me')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['artifact-ai.onrender.com', 'localhost', '127.0.0.1']
 
-GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY') or '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'
-
-# Placeholder for the image generation API key (e.g. OpenAI or Stability AI)
-IMAGE_GEN_API_KEY = os.environ.get('IMAGE_GEN_API_KEY') or "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"
-
-# Placeholder for the text/image to 3D API key (e.g. Meshy, Tripo, etc.)
-THREE_D_API_KEY = os.environ.get('THREE_D_API_KEY') or "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"
-
+# MASTER AI SYSTEM PROTOCOL (v2.1) - AUTHORIZED API KEYS
+GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY')
+IMAGE_GEN_API_KEY = os.environ.get('IMAGE_GEN_API_KEY')
+THREE_D_API_KEY = os.environ.get('THREE_D_API_KEY')
 
 # Application definition
 
@@ -49,10 +48,12 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'analyzer',
+    'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
