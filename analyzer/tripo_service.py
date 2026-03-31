@@ -4,9 +4,9 @@ import numpy as np
 import rembg
 from PIL import Image
 
-# ✅ CORRECT IMPORTS (FIXED FOR YOUR STRUCTURE)
-from analyzer.triposr_lib.tsr.system import TSR
-from analyzer.triposr_lib.tsr.utils import remove_background, resize_foreground
+# ✅ FIXED IMPORTS (RELATIVE - WORKS ON RENDER)
+from .tsr.system import TSR
+from .tsr.utils import remove_background, resize_foreground
 
 
 class TripoService:
@@ -53,7 +53,7 @@ class TripoService:
         print(f"--- [TripoSR] Processing Image: {input_image_path} ---", flush=True)
 
         # 1. Background removal
-        image = Image.open(input_image_path)
+        image = Image.open(input_image_path).convert("RGBA")
         image = remove_background(image, session)
         image = resize_foreground(image, 0.85)
 
