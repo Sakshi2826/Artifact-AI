@@ -2,11 +2,10 @@ services:
   - type: web
     name: artifact-ai
     runtime: python
-    buildCommand: pip install -r requirements.txt
+    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --no-input
     startCommand: gunicorn core.wsgi --bind 0.0.0.0:$PORT --timeout 300 --workers 1 --threads 4
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.4
       - key: DEBUG
         value: "False"
-      # IMPORTANT: You still need to manually add your GEMINI_API_KEY, IMAGE_GEN_API_KEY, etc. in the Render Dashboard
