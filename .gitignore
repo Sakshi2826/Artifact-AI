@@ -1,0 +1,30 @@
+# Python / Virtual Environments
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Django
+db.sqlite3
+db.sqlite3-journal
+*.log
+
+# Media / Large Assets
+media/
+analyzer/triposr_lib/weights/
+analyzer/triposr_lib/output/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment Variables
+.env
+local_settings.py
+
+# Build / Stats
+pip_list.txt
+requirements.txt.bak

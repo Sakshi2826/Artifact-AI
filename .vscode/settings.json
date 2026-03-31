@@ -1,0 +1,6 @@
+{
+    "python.defaultInterpreterPath": "c:\\Users\\91741\\reverse engineering\\.venv\\Scripts\\python.exe",
+    "python.analysis.extraPaths": ["c:\\Users\\91741\\reverse engineering\\.venv\\Lib\\site-packages"],
+    "pyre2.sitePackagePath": "c:\\Users\\91741\\reverse engineering\\.venv\\Lib\\site-packages",
+    "pyre2.searchRoots": ["c:\\Users\\91741\\reverse engineering"]
+}

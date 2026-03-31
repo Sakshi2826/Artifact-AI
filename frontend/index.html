@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artifact AI | Master Protocol v2.1</title>
+    <meta name="description" content="AI platform for high-precision forensic specimen analysis and ISO-compliant engineering.">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+</head>
+<body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    
+    <div class="app-container">
+        <header>
+            <div class="logo" onclick="location.reload()" style="cursor:pointer">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 17L12 22L22 17" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 12L12 17L22 12" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h1>Artifact<span class="highlight">AI</span></h1>
+            </div>
+            <p class="subtitle">Specimen Terminal: Master AI Protocol (v2.1) Active.</p>
+
+            <div class="profile-toggle">
+                <button id="btn-engineer-tab" onclick="switchTab('engineer')" class="active">Engineer Terminal</button>
+                <button id="btn-worker-tab" onclick="switchTab('worker')">Worker Portal</button>
+            </div>
+        </header>
+
+        <main id="main-content">
+            <!-- Simplified Master Engineer Console -->
+            <div id="engineer-view">
+                <section class="upload-section">
+                    <div class="glass-panel">
+                        <h2>Initialize Assessment Portfolio</h2>
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <div class="drop-zone" id="drop-zone-ruined" style="flex: 1; min-width: 250px;">
+                                <div class="drop-content" id="drop-content-ruined">
+                                    <div class="icon-container">
+                                        <svg class="upload-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
+                                    </div>
+                                    <h3>Ruined Specimen</h3>
+                                    <p>Drag or <span class="browse-link" id="browse-ruined">browse</span></p>
+                                </div>
+                                <input type="file" id="file-input-ruined" accept="image/*" hidden>
+                                <img id="image-preview-ruined" src="" alt="Ruined Specimen">
+                            </div>
+                            
+                            <div class="drop-zone" id="drop-zone-reference" style="flex: 1; min-width: 250px;">
+                                <div class="drop-content" id="drop-content-reference">
+                                    <div class="icon-container">
+                                        <svg class="upload-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
+                                    </div>
+                                    <h3>Target Archetype</h3>
+                                    <p>Drag or <span class="browse-link" id="browse-reference">browse</span></p>
+                                </div>
+                                <input type="file" id="file-input-reference" accept="image/*" hidden>
+                                <img id="image-preview-reference" src="" alt="Reference Specimen">
+                            </div>
+                        </div>
+
+                        <div class="action-container" style="margin-top: 2rem; display: flex; justify-content: center;">
+                            <button id="analyze-btn" class="btn-primary large" disabled>
+                                <span class="btn-text">Initialize Specimen Instance</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="processing-section" class="hidden" style="margin-top: 2rem;">
+                    <div class="glass-panel text-center" style="padding: 3.5rem;">
+                         <div class="radar abs-center" style="position:relative; margin: 0 auto; width: 60px; height: 60px;"></div>
+                         <h3 style="margin-top: 2.2rem; color: var(--primary);">Synchronizing Rapid Protocol v2.1...</h3>
+                         <p style="color: var(--text-dim);">Duo-Synthesis Active | Full Protocol Restoration Engaged</p>
+                    </div>
+                </section>
+
+                <section class="results-section hidden" id="results-section">
+                    <div class="results-header" style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 20px;">
+                        <h2><span class="dot"></span> Archaeological Restoration Portfolio</h2>
+                        
+                        <div id="action-btn-group" style="display:flex; gap:12px;">
+                             <button id="btn-generate-report" class="btn-primary" style="display:none; background: var(--primary); color:#0b0f19; font-weight:800; padding: 10px 22px; font-size:0.85rem; box-shadow: 0 4px 15px rgba(0,255,157,0.3); border:none;" onclick="triggerManualSynthesis()">EXECUTE MANUAL READING</button>
+                             <button id="btn-generate-blueprint" class="btn-primary" style="display:none; background: var(--primary); color:#0b0f19; font-weight:800; padding: 10px 22px; font-size:0.85rem; box-shadow: 0 4px 15px rgba(0,255,157,0.3); border:none;" onclick="triggerBlueprintSynthesis()">GENERATE ISO BLUEPRINT</button>
+                             <button id="btn-generate-3d" class="btn-primary" style="display:none; background: #9D72FF; color:#fff; font-weight:800; padding: 10px 22px; font-size:0.85rem; box-shadow: 0 4px 15px rgba(157,114,255,0.4); border:none;" onclick="trigger3DSynthesis()">GENERATE 3D MESH</button>
+                             <button id="assign-btn" class="btn-primary" style="display:none; background: var(--secondary); color:#0b0f19; font-weight:800; padding: 10px 22px; font-size:0.85rem; box-shadow: 0 4px 15px rgba(52,211,153,0.3); border:none;">ASSIGN TO SPECIALIST</button>
+                             <button id="validate-btn" class="btn-primary" style="display:none; background: #fff; color:#0b0f19; font-weight:800; padding: 10px 22px; font-size:0.85rem; box-shadow: 0 4px 15px rgba(255,255,255,0.2); border:none;">VALIDATE RESTORATION</button>
+                             <button id="resend-btn" class="btn-primary" style="display:none; background: var(--danger); color:#fff; font-weight:800; padding: 10px 22px; font-size:0.85rem; border:none; box-shadow: 0 4px 15px rgba(248,113,113,0.3);">RESEND TO WORKER</button>
+                        </div>
+                    </div>
+                    
+                    <div class="results-grid">
+                        <!-- mono report -->
+                        <div class="result-card glass-panel col-span-2">
+                            <div class="card-header" style="border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 12px;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                                <h3>Forensic Report & Technical Manual</h3>
+                                <button id="download-manual-btn" class="btn-primary" style="margin-left: auto; display:none; padding: 4px 12px; font-size: 0.7rem; background:rgba(255,255,255,0.12);" onclick="downloadManual()">DOWNLOAD REPORT (TXT)</button>
+                            </div>
+                            <div id="manual-content-wrapper" style="position:relative; min-height: 480px; padding: 1.5rem 0;">
+                                <div id="report-view-mono" style="background: rgba(0,0,0,0.35); border-radius: 10px; border: 1px solid rgba(255,255,255,0.05); padding: 30px; min-height: 450px; color: #ced4da; font-family: 'Roboto Mono', monospace; font-size: 0.82rem; line-height: 1.8;">
+                                    <pre id="res-instructions" style="white-space: pre-wrap; margin:0;"></pre>
+                                </div>
+                                <div id="manual-loader" class="card-overlay">
+                                    <div class="inner-radar"></div>
+                                    <p>Synthesizing Forensic Report Dossier...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- iso blueprint -->
+                        <div class="result-card glass-panel col-span-2">
+                             <div class="card-header">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                                <h3>ISO Engineering Schematic Overlay</h3>
+                                <button id="download-blueprint-btn" class="btn-primary" style="margin-left: auto; display:none; padding: 4px 12px; font-size: 0.7rem; background: rgba(0,255,157,0.1); color: var(--primary);" onclick="downloadBlueprint()">DOWNLOAD BLUEPRINT (PNG)</button>
+                            </div>
+                            <div class="blueprint-image-wrapper" style="position:relative; width:100%; min-height: 450px; background: rgba(0,0,0,0.5); border-radius: 12px; margin-top: 1.5rem; border: 1px solid var(--primary);">
+                                <img id="res-blueprint" src="" alt="Forensic Blueprint" style="width:100%; border-radius:12px; display:block;">
+                                <div id="blueprint-loader" class="card-overlay">
+                                    <div class="inner-radar"></div>
+                                    <p>Synthesizing Schematic...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3d mesh -->
+                        <div class="result-card glass-panel col-span-2">
+                             <div class="card-header">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                                <h3>Volumetric 3D Reconstruction</h3>
+                                <div id="download-3d-group" style="margin-left: auto; display:none; gap: 8px;">
+                                    <button class="btn-primary" style="padding: 4px 12px; font-size: 0.7rem; background: rgba(157,114,255,0.1); color: #9D72FF;" onclick="download3D('obj')">OBJ</button>
+                                    <button class="btn-primary" style="padding: 4px 12px; font-size: 0.7rem; background: rgba(157,114,255,0.1); color: #9D72FF;" onclick="download3D('glb')">GLB</button>
+                                </div>
+                            </div>
+                            <div class="mesh-viewer-wrapper" style="position:relative; width:100%; min-height: 450px; background: rgba(0,0,0,0.5); border-radius: 12px; margin-top: 1.5rem; border: 1px solid #9D72FF;">
+                                <model-viewer id="res-3d-viewer" src="" alt="3D Mesh" auto-rotate camera-controls style="width:100%; height:450px; display:none;"></model-viewer>
+                                <div id="3d-placeholder" style="width:100%; height:450px; display:flex; align-items:center; justify-content:center; color: var(--text-dim); font-size: 0.8rem;">
+                                    <p>Initialize 3D synthesis to view volumetric specimen.</p>
+                                </div>
+                                <div id="3d-loader" class="card-overlay" style="display:none;">
+                                    <div class="inner-radar" style="border-color: #9D72FF; box-shadow: 0 0 15px rgba(157,114,255,0.3);"></div>
+                                    <p>Extracting Volumetric Mesh (TripoSR)...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- VERIFICATION CARD (VALIDATION HANDSHAKE) -->
+                        <div id="verification-card" class="result-card glass-panel col-span-2" style="display:none; border-top: 4px solid #fff; position:relative;">
+                             <div class="card-header">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                <h3 id="ver-badge-title">Artifact Specimen Verification</h3>
+                                <div id="ver-badge-status" style="margin-left: auto; font-size: 0.7rem; color: #fff; background: rgba(255,255,255,0.1); padding: 4px 12px; border-radius: 4px; border: 1px solid #fff; text-transform:uppercase;">PENDING DECISION</div>
+                            </div>
+                            <div class="repaired-image-wrapper" style="width:100%; margin-top: 1.5rem; text-align: center;">
+                                 <img id="res-repaired" src="" alt="Repaired Specimen" style="width:100%; border-radius:15px; border: 1px solid rgba(255,255,255,0.2);">
+                                 
+                                 <!-- VALIDATED SEAL (100% VALIDATED) -->
+                                 <div id="validated-seal" style="display:none; margin-top: 3rem; animation: seal-pop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+                                     <div style="display:inline-block; border: 6px double var(--primary); padding: 25px 50px; border-radius: 12px; transform: rotate(-5deg); background: rgba(0,255,157,0.1); box-shadow: 0 0 50px rgba(0,255,157,0.2);">
+                                         <h1 style="color: var(--primary); font-family: 'Roboto Mono', monospace; font-size: 2.5rem; font-weight: 900; letter-spacing: 5px; margin:0;">100% VALIDATED</h1>
+                                         <p style="color: var(--primary); font-size: 0.7rem; letter-spacing: 3px; margin-top: 5px; font-weight:700;">OFFICIAL ARCHAEOLOGICAL RECORD SEALED</p>
+                                     </div>
+                                 </div>
+                                 <p id="ver-prompt" style="margin-top: 1.5rem; color: var(--text-dim); text-align: center; font-size: 0.85rem;">Perform decision handshake: Approve work or send back for corrections.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="tasks-section mt-4">
+                    <div class="glass-panel">
+                        <h2>Master Reconstruction Execution Logs</h2>
+                        <div id="engineer-tasks-container"></div>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- v2.1 Specialist Portal -->
+            <div id="worker-view" class="hidden">
+                 <div class="glass-panel">
+                    <h2 style="color: var(--primary)">Professional Specialist Portal</h2>
+                    <p style="color: var(--text-dim)">Protocol v2.1: Restoration fulfillment and submission terminal.</p>
+                    <div id="worker-tasks-container" style="margin-top: 2.2rem; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));"></div>
+                 </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal-container" class="modal-overlay hidden">
+        <div class="modal-content glass-panel" style="max-width: 500px;">
+            <div class="modal-header">
+                <h3 id="modal-title">Fulfill Specialist Assignment</h3>
+                <button class="modal-close" onclick="document.getElementById('modal-container').classList.add('hidden')">&times;</button>
+            </div>
+            <div id="modal-body" style="margin-top: 2rem;"></div>
+        </div>
+    </div>
+
+    <style>
+        .card-overlay { position: absolute; inset: 0; background: rgba(11,15,25,0.98); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 10; border-radius: 12px; color: var(--primary); text-align: center; }
+        .inner-radar { width: 45px; height: 45px; border: 2.5px solid var(--primary); border-top-color: transparent; border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 20px; box-shadow: 0 0 15px rgba(0,255,157,0.3); }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes seal-pop { from { transform: scale(0.5) rotate(-20deg); opacity: 0; } to { transform: scale(1) rotate(-5deg); opacity: 1; } }
+        #report-console::-webkit-scrollbar { width: 6px; }
+        #report-console::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+    </style>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
