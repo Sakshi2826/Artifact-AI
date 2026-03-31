@@ -9,8 +9,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-default-change-me')
 
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['artifact-ai.onrender.com', 'localhost', '127.0.0.1']
-
+#ALLOWED_HOSTS = ['artifact-ai.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY')
 IMAGE_GEN_API_KEY = os.environ.get('IMAGE_GEN_API_KEY')
 THREE_D_API_KEY = os.environ.get('THREE_D_API_KEY')
