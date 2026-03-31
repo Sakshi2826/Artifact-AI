@@ -4,9 +4,9 @@ import numpy as np
 import rembg
 from PIL import Image
 
-# ✅ Clean imports (FIXED)
-from analyzer.tsr.system import TSR
-from analyzer.tsr.utils import remove_background, resize_foreground
+# ✅ CORRECT IMPORTS (FIXED FOR YOUR STRUCTURE)
+from analyzer.triposr_lib.tsr.system import TSR
+from analyzer.triposr_lib.tsr.utils import remove_background, resize_foreground
 
 
 class TripoService:
@@ -26,7 +26,7 @@ class TripoService:
 
             cls._model.to("cpu")
 
-            # Avoid memory crash on Render
+            # Prevent memory issues on Render
             if hasattr(cls._model, 'renderer'):
                 cls._model.renderer.set_chunk_size(131072)
 
@@ -77,7 +77,7 @@ class TripoService:
         meshes = model.extract_mesh(
             scene_codes,
             has_vertex_color=False,
-            resolution=160  # lower = safer on Render
+            resolution=160  # safer for low memory
         )
 
         # 4. Export files
