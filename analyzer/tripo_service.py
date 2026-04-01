@@ -5,8 +5,8 @@ import rembg
 from PIL import Image
 
 # ✅ FIXED IMPORTS (RELATIVE - WORKS ON RENDER)
-from .tsr.system import TSR
-from .tsr.utils import remove_background, resize_foreground
+from .triposr_lib.tsr.system import TSR
+from .triposr_lib.tsr.utils import remove_background, resize_foreground
 
 
 class TripoService:
